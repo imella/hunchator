@@ -8,7 +8,7 @@ class FriendsController < ApplicationController
 
   def recommend
     friend_id = params[:id]
-    url = "http://api.hunch.com/api/v1/get-recommendations?auth_token=#{session[:auth_token]}&friend_id=#{friend_id}&topic_ids=cat_gifts&limit=20"
+    url = "http://api.hunch.com/api/v1/get-recommendations?auth_token=#{session[:auth_token]}&friend_id=#{friend_id}&topic_ids=all_394864&limit=20"
     @recommendations = HunchClient.get_json url
 
   end
