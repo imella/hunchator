@@ -3,12 +3,14 @@ Hunchator::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resource :auths do
+  resources :auths do
     get :callback
   end
 
-  resource :friends do
-    get :index
+  resources :friends do
+    member do
+      get :recommend
+    end
   end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
