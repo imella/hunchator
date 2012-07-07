@@ -4,7 +4,9 @@ Hunchator::Application.routes.draw do
   # first created -> highest priority.
 
   resources :auths do
-    get :callback
+    collection do
+      get :callback
+    end
   end
 
   resources :friends do
