@@ -1,0 +1,22 @@
+#recommendations-container{
+	width: 400px;
+}
+
+#recommendations{
+	float: left;
+    width: 60px;
+}
+
+#trash {
+	background-color: green;
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+
+.recommendation{
+	background-color: yellow;
+    height: 50px;
+    margin: 5px;
+    width: 50px;
+}
