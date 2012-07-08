@@ -17,12 +17,12 @@ $ ->
   for block in $('.recommendation')
     blocked.push $(block).data('item-id')
 
-  $('.dislike').on 'click', ->
+  $(document).on 'click', '.dislike', ->
     dislikes.push $(@).attr('id').replace('dislike-', '')
     $(@).parent().remove()
     console.log "Dislikes #{dislikes}"
 
-  $('.like').on 'click', ->
+  $(document).on 'click', '.like', ->
     likes.push $(@).attr('id').replace('like-', '')
     console.log "Likes #{likes}"
 
@@ -39,9 +39,13 @@ $ ->
         blocked: blocked.join(',')
     ).done (msg) ->
       html = ""
+      blocked = []
       for r in msg.recommendations
+        html += "<div class='recommendation-box'>"
         html += "<div data-item-id=#{r.result_id} class='recommendation'><img src=#{r.image_url} width='100'/></div>"
         html += "<a href='#' class='btn like' id=like-#{r.result_id}>Like</a>"
         html += "<a href='#' class='btn btn-danger dislike' id=dislike-#{r.result_id}>Dislike</a>"
+        html += "</div>"
+        blocked.push r.result_id
       $('#recommendations').append(html)
         
