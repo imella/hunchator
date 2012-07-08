@@ -1,15 +1,24 @@
-<div id="recommendations-container">
-		<%= link_to "More","#", id: "#{@friend_id}", class: "btn btn-info more" %>
-	<rec id="recommendations">
-		<% @recommendations[:recommendations].each do |r| %>
-			<div class="recommendation-box">
-			<div data-item-id="<%= r['result_id'] %>" class="recommendation"><%= image_tag(r['image_url'], width: "100")%></div>
-			  <%= link_to "Like", '#', class: "btn like", id: "like-#{r['result_id']}" %>
-  			<%= link_to "Dislike", "#", class: "btn btn-danger dislike", id: "dislike-#{r['result_id']}" %>
-			</div>
-		<% end %>
-	</div>
-	<div id="trash">
-	</div>
-</div>
 
+
+<div id="recommendations-container" class="well">
+  <% @recommendations.each do |r| %>
+	  <div class="recommendation-item" rel="popover" title="<%= r['title'] %>" data-content="<%= r['description'] %>" data-item-id="<%= r['result_id'] %>">
+      <div class="recommendation-item-img-div">
+        <div class="actions dn">
+          <a href="#" class="btn btn-success like" data-item-id="<%= r['result_id'] %>">
+            <i class="icon-ok"></i>
+          </a>
+          <a href="#" class="btn btn-danger dislike" data-item-id="<%= r['result_id'] %>">
+            <i class="icon-remove"></i>
+          </a>
+        </div>
+        <%= link_to image_tag(r['image_url'], :class => "recommendation-item-img"), "#" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= link_to "#", class: "more btn btn-info fr btn-large", id: @friend_id do %>
+	<i class="icon-gift"></i>
+	More Recommendations
+
+<% end %>

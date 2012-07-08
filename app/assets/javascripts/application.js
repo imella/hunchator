@@ -17,3 +17,4 @@
 //= require jquery.infinitescroll
 //= require friends
 //= require jquery.ui.all
+//= require vendor
