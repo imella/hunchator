@@ -1,16 +1,15 @@
-<% @recommendations[:recommendations].each do |r| %>
-  <%= link_to image_tag(r['image_url']), "#", rel: 'tooltip', title: r['name'] %>
-<% end %>
-
 <div id="recommendations-container">
-	<div id="recommendations">
-		<div data-item-id="1" class="recommendation">1</div>
-		<div data-item-id="2" class="recommendation">2</div>
-		<div data-item-id="3" class="recommendation">3</div>
-		<div data-item-id="4" class="recommendation">4</div>
-		<div data-item-id="5" class="recommendation">5</div>
-		<div data-item-id="6" class="recommendation">6</div>
+		<%= link_to "More","#", id: "#{@friend_id}", class: "btn btn-info more" %>
+	<rec id="recommendations">
+		<% @recommendations[:recommendations].each do |r| %>
+			<div class="recommendation-box">
+			<div data-item-id="<%= r['result_id'] %>" class="recommendation"><%= image_tag(r['image_url'], width: "100")%></div>
+			  <%= link_to "Like", '#', class: "btn like", id: "like-#{r['result_id']}" %>
+  			<%= link_to "Dislike", "#", class: "btn btn-danger dislike", id: "dislike-#{r['result_id']}" %>
+			</div>
+		<% end %>
 	</div>
 	<div id="trash">
 	</div>
 </div>
+
