@@ -32,7 +32,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Authentication", new_auth_path  %></li>
-              <li><%= link_to "Friends", friends_path(limit: 50, offset: 0)  %></li>
+              <li><%= link_to "Friends", friends_path(limit: 100, offset: 0)  %></li>
               <li><%= yield :more %></li>
             </ul>
           </div><!--/.nav-collapse -->

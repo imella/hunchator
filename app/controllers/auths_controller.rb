@@ -22,7 +22,7 @@ class AuthsController < ApplicationController
     session[:auth_token] = authorization[:auth_token]
     session[:user_id] = authorization[:user_id]
     session[:status] = authorization[:status]
-
+    redirect_to friends_path(limit: 100)
   end
 
 
